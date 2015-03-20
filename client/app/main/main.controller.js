@@ -2,10 +2,7 @@
 
 angular.module('devroomFullstackApp')
   .controller('MainCtrl', function ($scope, $http, $stateParams) {
-    $scope.awesomeThings = ['Test'];
-
     $scope.timetable = null;
-
     $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId).success(function (data) {
       $scope.timetable = data;
       console.log($scope.timetable);

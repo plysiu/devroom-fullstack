@@ -5,11 +5,23 @@ angular.module('devroomFullstackApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angular-google-analytics'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+  }).config(function (AnalyticsProvider) {
+    AnalyticsProvider.setAccount('UA-46869390-6');
+    AnalyticsProvider.trackPages(true);
+    AnalyticsProvider.trackUrlParams(true);
+    AnalyticsProvider.useDisplayFeatures(true);
+    AnalyticsProvider.useAnalytics(true);
+    AnalyticsProvider.useECommerce(true, false);
+    AnalyticsProvider.useECommerce(true, true);
+    AnalyticsProvider.useEnhancedLinkAttribution(true);
+  })
+  .run(function (Analytics) {
   });
