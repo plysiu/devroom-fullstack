@@ -1,299 +1,354 @@
-<!--<div class="page-header">-->
-
-<!--{{awesomeThings[0]}}-->
-<!--<h2>Sala 122-->
-<!--<small> Pawilon A</small>-->
-<!--</h2>-->
-<!--</div>-->
-<div class="panel panel-default">
-  <div class="panel-body">
-    <!--<a ng-if="activity >= -1" class="btn btn-link btn-block btn-lg" ng-click="down()" href="/#/room">-->
-    <!--<span ng-bind="activity > 0 ? 'Teraz w tej sali':'Wcześniej w tej sali'"></span>-->
-    <!--<i class="fa fa-fw fa-lg fa-angle-up"></i>-->
-    <!--</a>-->
-    <!--<hr ng-if="activity >= -1" />-->
+<div class=" fx-zoom-normal  fx-speed-800" ng-if="currentActivity">
+  <div class="page-header">
 
 
-    <!--<div ng-if="activity == -2">-->
-    <!--<p class="lead">-->
-    <!--Poprzednie zajecia w tej sali według planu: <small class="pull-right"><span class="text-warning">Ćwiczenia</span></small>-->
-    <!--</p>-->
-    <!--<h4>-->
-    <!--<strong>Teoretyczne podstawy informatyki 5</strong>-->
-    <!--</h4>-->
-    <!--<h6>-->
-    <!--Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong>-->
-    <!--</h6>-->
-    <!--<h5>-->
-    <!--od <strong>9:35</strong> do <strong>11:15</strong>-->
-    <!--</h5>-->
-    <!--<div class="row">-->
-    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-    <!--<h5>Prowadzący:</h5>-->
-    <!--<ul class="list-group">-->
-    <!--<li  class="list-group-item">-->
-    <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  >-->
-    <!--<strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong>-->
-    <!--</a>-->
-    <!--<strong class="text-info" popover-trigger="mouseenter" data-html="true" popover="{{nextGroupActivity()}}">dr hab. Paweł Wołoszyn</strong> ->-->
+    <h2 ng-if="!isPlace()">
+      <a title="E-Wizytówka" ng-href="{{currentActivity.tutors[0].moodle_url}}" class="pull-right">
+        <i class="fa fa-fw fa-lg fa-credit-card"></i>
+      </a>
+      <strong ng-bind="currentActivity.tutors[0].name"></strong>
 
-    <!--<a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w której prowadzący będzie miał najbliższe zajęcia.">-->
-    <!--<small>Paw A sala 301</small>-->
-    <!--</a>-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" >-->
-    <!--<i class="fa fa-fw fa-lg fa-calendar"></i>-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-    <!--<h5>Grupy:</h5>-->
-    <!--<accordion close-others="false">-->
-    <!--<accordion-group heading="KrDzIs3011Io">-->
-    <!--<ul class="list-unstyled">-->
-    <!--<li>Przyszła z </li>-->
-    <!--<li>Jest w </li>-->
-    <!--<li>Pójdzie do</li>-->
-    <!--</ul>-->
-    <!--</accordion-group>-->
-    <!--<accordion-group heading="KrDzIs3012Io">-->
-    <!--Zajęcia wcześniej<br>-->
-    <!--Gdzie są teraz<br>-->
-    <!--Gdzie będą<br>-->
-    <!--</accordion-group>-->
-    <!--</accordion>-->
-    <!--&lt;!&ndash; <ul class="list-group">-->
-    <!--<li class="list-group-item">-->
-    <!--<a ng-init="test=false" ng-click="test =! test"><strong>KrDzIs3011Io</strong></a>-->
-    <!--<p ng-show="test">fasdbfklasdbfl asduhaf;lv ghfdlgho;efbvadf;ov odfghdfovbn df vdfobvnsfdovbusdfvb-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-    <!---->
-    <!--</p>-->
-    <!---->
-    <!--</li>-->
-    <!--<li class="list-group-item">-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-    <!--</li>-->
-    <!--</ul>!&ndash;&gt;-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
+    </h2>
+
+    <!--<h2 ng-if="isPlace()">Sala 122-->
+    <!--<small> Pawilon A</small>-->
+    <!--</h2>-->
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <!--<a ng-if="activity >= -1" class="btn btn-link btn-block btn-lg" ng-click="down()" href="/#/room">-->
+      <!--<span ng-bind="activity > 0 ? 'Teraz w tej sali':'Wcześniej w tej sali'"></span>-->
+      <!--<i class="fa fa-fw fa-lg fa-angle-up"></i>-->
+      <!--</a>-->
+      <!--<hr ng-if="activity >= -1" />-->
 
 
-    <!--<div ng-if="activity == -1">-->
-    <!--<p class="lead">-->
-    <!--Poprzednie zajecia w tej sali według planu: <small class="pull-right"><span class="text-warning">Ćwiczenia</span></small>-->
-    <!--</p>-->
-    <!--<h4>-->
-    <!--<strong>Pracownia projektowa 5</strong>-->
-    <!--</h4>-->
-    <!--<h6>-->
-    <!--Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong>-->
-    <!--</h6>-->
-    <!--<h5>-->
-    <!--od <strong>9:35</strong> do <strong>11:15</strong>-->
-    <!--</h5>-->
-    <!--<div class="row">-->
-    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-    <!--<h5>Prowadzący:</h5>-->
-    <!--<ul class="list-group">-->
-    <!--<li  class="list-group-item">-->
-    <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  >-->
-    <!--<strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong>-->
-    <!--</a>-->
+      <!--<div ng-if="activity == -2">-->
+      <!--<p class="lead">-->
+      <!--Poprzednie zajecia w tej sali według planu: <small class="pull-right"><span class="text-warning">Ćwiczenia</span></small>-->
+      <!--</p>-->
+      <!--<h4>-->
+      <!--<strong>Teoretyczne podstawy informatyki 5</strong>-->
+      <!--</h4>-->
+      <!--<h6>-->
+      <!--Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong>-->
+      <!--</h6>-->
+      <!--<h5>-->
+      <!--od <strong>9:35</strong> do <strong>11:15</strong>-->
+      <!--</h5>-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+      <!--<h5>Prowadzący:</h5>-->
+      <!--<ul class="list-group">-->
+      <!--<li  class="list-group-item">-->
+      <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  >-->
+      <!--<strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong>-->
+      <!--</a>-->
+      <!--<strong class="text-info" popover-trigger="mouseenter" data-html="true" popover="{{nextGroupActivity()}}">dr hab. Paweł Wołoszyn</strong> ->-->
 
-    <!--<a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w któ©ej prowadzący ma zajęcia">-->
-    <!--<strong class="text-warning" popover-trigger="mouseenter" popover="Ma teraz zajęcia">dr hab. Paweł Wołoszyn</strong>-->
-    <!--</a>-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" >-->
-    <!--<i class="fa fa-fw fa-lg fa-calendar"></i>-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-    <!--<h5>Grupy:</h5>-->
-    <!--<ul class="list-group">-->
-    <!--<li class="list-group-item">-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-    <!--</li>-->
-    <!--<li class="list-group-item">-->
-    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
+      <!--<a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w której prowadzący będzie miał najbliższe zajęcia.">-->
+      <!--<small>Paw A sala 301</small>-->
+      <!--</a>-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" >-->
+      <!--<i class="fa fa-fw fa-lg fa-calendar"></i>-->
+      <!--</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+      <!--<h5>Grupy:</h5>-->
+      <!--<accordion close-others="false">-->
+      <!--<accordion-group heading="KrDzIs3011Io">-->
+      <!--<ul class="list-unstyled">-->
+      <!--<li>Przyszła z </li>-->
+      <!--<li>Jest w </li>-->
+      <!--<li>Pójdzie do</li>-->
+      <!--</ul>-->
+      <!--</accordion-group>-->
+      <!--<accordion-group heading="KrDzIs3012Io">-->
+      <!--Zajęcia wcześniej<br>-->
+      <!--Gdzie są teraz<br>-->
+      <!--Gdzie będą<br>-->
+      <!--</accordion-group>-->
+      <!--</accordion>-->
+      <!--&lt;!&ndash; <ul class="list-group">-->
+      <!--<li class="list-group-item">-->
+      <!--<a ng-init="test=false" ng-click="test =! test"><strong>KrDzIs3011Io</strong></a>-->
+      <!--<p ng-show="test">fasdbfklasdbfl asduhaf;lv ghfdlgho;efbvadf;ov odfghdfovbn df vdfobvnsfdovbusdfvb-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+      <!---->
+      <!--</p>-->
+      <!---->
+      <!--</li>-->
+      <!--<li class="list-group-item">-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+      <!--</li>-->
+      <!--</ul>!&ndash;&gt;-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
 
 
-    <p class="lead">
-      Najbliższe zajęcia:
-      <small class="pull-right"><span class="text-warning">{{currentActivity.category_name}}</span></small>
-    </p>
-    <h4>
-      <strong>{{currentActivity.name}}</strong>
+      <!--<div ng-if="activity == -1">-->
+      <!--<p class="lead">-->
+      <!--Poprzednie zajecia w tej sali według planu: <small class="pull-right"><span class="text-warning">Ćwiczenia</span></small>-->
+      <!--</p>-->
+      <!--<h4>-->
+      <!--<strong>Pracownia projektowa 5</strong>-->
+      <!--</h4>-->
+      <!--<h6>-->
+      <!--Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong>-->
+      <!--</h6>-->
+      <!--<h5>-->
+      <!--od <strong>9:35</strong> do <strong>11:15</strong>-->
+      <!--</h5>-->
+      <!--<div class="row">-->
+      <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+      <!--<h5>Prowadzący:</h5>-->
+      <!--<ul class="list-group">-->
+      <!--<li  class="list-group-item">-->
+      <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  >-->
+      <!--<strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong>-->
+      <!--</a>-->
 
-    </h4>
-    <!--<h6>Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong></h6>-->
-    <h5>
-      <strong>{{currentActivity.date}}</strong>
-       od <strong>{{currentActivity.starts_at}}</strong> do <strong>{{currentActivity.ends_at}}</strong>
-    </h5>
+      <!--<a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w któ©ej prowadzący ma zajęcia">-->
+      <!--<strong class="text-warning" popover-trigger="mouseenter" popover="Ma teraz zajęcia">dr hab. Paweł Wołoszyn</strong>-->
+      <!--</a>-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" >-->
+      <!--<i class="fa fa-fw fa-lg fa-calendar"></i>-->
+      <!--</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+      <!--<h5>Grupy:</h5>-->
+      <!--<ul class="list-group">-->
+      <!--<li class="list-group-item">-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+      <!--</li>-->
+      <!--<li class="list-group-item">-->
+      <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
 
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <h5>Prowadzący:</h5>
+
+      <p class="lead">
+        Najbliższe zajęcia: <strong>{{currentActivity.starts_at_timestamp*1000 | amCalendar }}</strong>
+
+      </p>
+      <h4>
+        <span class=" pull-right text-warning">{{currentActivity.category_name}}</span>
+        <strong>{{currentActivity.name}}</strong>
+      </h4>
+      <!--<h6>Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong></h6>-->
+      <h5>
+        <strong>{{currentActivity.date}}</strong>
+        od <strong>{{currentActivity.starts_at}}</strong> do <strong>{{currentActivity.ends_at}}</strong>
+      </h5>
+
+      <div class="progress" ng-if="progress > 0">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="progress"
+             aria-valuemin="0"
+             aria-valuemax="100" ng-style="{'width': progress}">
+        </div>
+      </div>
 
 
-        <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true" ng-repeat="tutor in currentActivity.tutors">
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="heading1">
-              <h4 class="panel-title">
-                <a title="E-Wizytówka" ng-href="tutor.moodle_url"><strong><i
-                  class="fa fa-fw fa-lg fa-credit-card"></i></strong></a>
-                <a data-toggle="collapse" data-parent="#accordion1" ng-href="/#/room/#collapse1" aria-expanded="false"
-                   aria-controls="collapse1"><strong ng-bind="tutor.name"></strong></a>
-                <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right"-->
-                   <!--tooltip="Kliknij aby zobaczyć pełny plan prowadzącego"><i-->
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6" ng-if="isPlace()">
+          <h5>Prowadzący:</h5>
+
+          <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true"
+               ng-repeat="tutor in currentActivity.tutors">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading1">
+                <h4 class="panel-title">
+                  <a title="E-Wizytówka" ng-href="tutor.moodle_url"><strong><i
+                    class="fa fa-fw fa-lg fa-credit-card"></i></strong></a>
+                  <a data-toggle="collapse" data-parent="#accordion1" ng-href="/#/room/#collapse1" aria-expanded="false"
+                     aria-controls="collapse1"><strong ng-bind="tutor.name"></strong></a>
+                  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right"-->
+                  <!--tooltip="Kliknij aby zobaczyć pełny plan prowadzącego"><i-->
                   <!--class="fa fa-fw fa-lg fa-calendar"></i></a>-->
+                </h4>
+              </div>
+              <!--<div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">-->
+              <!--<div class="panel-body">-->
+              <!--<dl class="dl-horizontal">-->
+              <!--<dt>Przyszedł z</dt>-->
+              <!--<dd><a href="/#/room/123"><strong>Paw A sala 123</strong></a></dd>-->
+              <!--<dt>Jest w</dt>-->
+              <!--<dd><a href="/#/room/124"><strong>Paw B sala 124</strong></a></dd>-->
+              <!--<dt>Pójdzie do</dt>-->
+              <!--<dd><a href="/#/room/125"><strong>Paw D sala 125</strong></a></dd>-->
+              <!--</dl>-->
+              <!--</div>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6" ng-if="!isPlace()">
+          <h5>Sala:</h5>
+
+          <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true"
+               ng-repeat="place in currentActivity.places">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="heading1">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion1" ng-href="/#/room/#collapse1" aria-expanded="false"
+                     aria-controls="collapse1"><strong ng-bind="place.name"></strong></a>
+                  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right"-->
+                  <!--tooltip="Kliknij aby zobaczyć pełny plan prowadzącego"><i-->
+                  <!--class="fa fa-fw fa-lg fa-calendar"></i></a>-->
+                  <a ng-href="http://devplan.uek.krakow.pl/#/timetable/p{{place.id}}" class="pull-right">
+                    <i class="fa fa-fw fa-lg fa-calendar"></i>
+                  </a>
+                </h4>
+              </div>
+              <!--<div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">-->
+              <!--<div class="panel-body">-->
+              <!--<dl class="dl-horizontal">-->
+              <!--<dt>Przyszedł z</dt>-->
+              <!--<dd><a href="/#/room/123"><strong>Paw A sala 123</strong></a></dd>-->
+              <!--<dt>Jest w</dt>-->
+              <!--<dd><a href="/#/room/124"><strong>Paw B sala 124</strong></a></dd>-->
+              <!--<dt>Pójdzie do</dt>-->
+              <!--<dd><a href="/#/room/125"><strong>Paw D sala 125</strong></a></dd>-->
+              <!--</dl>-->
+              <!--</div>-->
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <h5>Grupa:</h5>
+
+          <!--COLLAPSE-->
+          <div class="panel panel-default" ng-repeat="group in currentActivity.groups">
+            <div class="panel-heading" role="tab" id="headingOne1">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" ng-href="/#/room/#collapseOne1"
+                   aria-expanded="false" aria-controls="collapseOne1">
+                  <strong ng-bind="group.name"></strong>
+                </a>
+                <a ng-href="http://devplan.uek.krakow.pl/#/timetable/g{{group.id}}" class="pull-right">
+                  <i class="fa fa-fw fa-lg fa-calendar"></i>
+                </a>
 
               </h4>
             </div>
-            <!--<div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">-->
-              <!--<div class="panel-body">-->
-                <!--<dl class="dl-horizontal">-->
-                  <!--<dt>Przyszedł z</dt>-->
-                  <!--<dd><a href="/#/room/123"><strong>Paw A sala 123</strong></a></dd>-->
-                  <!--<dt>Jest w</dt>-->
-                  <!--<dd><a href="/#/room/124"><strong>Paw B sala 124</strong></a></dd>-->
-                  <!--<dt>Pójdzie do</dt>-->
-                  <!--<dd><a href="/#/room/125"><strong>Paw D sala 125</strong></a></dd>-->
-                <!--</dl>-->
-              <!--</div>-->
-            <!--</div>-->
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <h5>Grupa:</h5>
-
-        <!--COLLAPSE-->
-        <div class="panel panel-default" ng-repeat="group in currentActivity.groups">
-          <div class="panel-heading" role="tab" id="headingOne1">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" ng-href="/#/room/#collapseOne1"
-                 aria-expanded="false" aria-controls="collapseOne1">
-                <strong ng-bind="group.name"></strong>
-              </a>
-              <a ng-href="http://devplan.uek.krakow.pl/#/timetable/g{{group.id}}" class="pull-right">
-                <i class="fa fa-fw fa-lg fa-calendar"></i>
-              </a>
-
-            </h4>
-          </div>
-          <div id="collapseOne1" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne1">
-            <div class="panel-body">
-              <dl class="dl-horizontal">
-                <dt>Przyszła z</dt>
-                <dd><a href="/#/room/123"><strong>Paw A sala 123</strong></a></dd>
-                <dt>Jest w</dt>
-                <dd><a href="/#/room/124"><strong>Paw B sala 124</strong></a></dd>
-                <dt>Pójdzie do</dt>
-                <dd><a href="/#/room/125"><strong>Paw D sala 125</strong></a></dd>
-              </dl>
+            <div id="collapseOne1" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingOne1">
+              <div class="panel-body">
+                <dl class="dl-horizontal">
+                  <dt>Przyszła z</dt>
+                  <dd><a href="/#/room/123"><strong>Paw A sala 123</strong></a></dd>
+                  <dt>Jest w</dt>
+                  <dd><a href="/#/room/124"><strong>Paw B sala 124</strong></a></dd>
+                  <dt>Pójdzie do</dt>
+                  <dd><a href="/#/room/125"><strong>Paw D sala 125</strong></a></dd>
+                </dl>
+              </div>
             </div>
           </div>
+
         </div>
 
+
+        <!--<ul class="list-group">
+  <li class="list-group-item">
+  <a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
+  </li>
+  <li class="list-group-item">
+  <a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
+  </li>
+  <li class="list-group-item">
+  <a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
+  </li>
+
+        </ul>-->
       </div>
 
 
-      <!--<ul class="list-group">
-<li class="list-group-item">
-<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
-</li>
-<li class="list-group-item">
-<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
-</li>
-<li class="list-group-item">
-<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>
-</li>
+      <div class="alert alert-info" role="alert" ng-if="currentActivity.notes">
+        <h4>Uwaga!</h4>
+        <blockquote>
+          <p ng-bind="currentActivity.notes"></p>
+        </blockquote>
+      </div>
 
-      </ul>-->
-    </div>
-    <div ng-if="currentActivity.notes">
 
-      <h5>Notatka:</h5>
-      <blockquote>
-        <p class="lead text-warning" ng-bind="currentActivity.notes">
-          Proszę cierpliwie czekać, spóźnię się ok. 10 minut.
-        </p>
-      </blockquote>
     </div>
 
+
+    <div class="panel-body text-center" ng-if="!currentActivity">
+      <i class="  fa fa-fw fa-spinner fa-5x fa-pulse"></i>
+    </div>
+    <!--<div ng-if="activity > 0">-->
+    <!--<p class="lead">-->
+    <!--Następne zajęcia w tej sali według planu: <small class="pull-right"><span class="text-warning">Wykład</span></small>-->
+    <!--</p>-->
+    <!--<h4>-->
+    <!--<strong>Organizacja i zarządzanie</strong>-->
+    <!--</h4>-->
+    <!--<h6>Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong></h6>-->
+    <!--<h5>-->
+    <!--od <strong>13:05</strong> do <strong>14:45</strong>-->
+    <!--</h5>-->
+
+    <!--<div class="row">-->
+    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+    <!--<h5>Prowadzący:</h5>-->
+    <!--<ul class="list-group">-->
+    <!--<li class="list-group-item">-->
+    <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  ><strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong></a>-->
+
+    <!--&lt;!&ndash; <a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w któej prowadzący ma zajęcia"> &ndash;&gt;-->
+    <!--<strong class="text-muted" popover-trigger="mouseover" popover="Prowadzącego prowadzącej nie ma już na uczelni.">dr hab. Paweł Wołoszyn</strong>-->
+    <!--&lt;!&ndash; </a> &ndash;&gt;-->
+
+    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" ><i class="fa fa-fw fa-lg fa-calendar"></i></a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
+    <!--<h5>Grupy:</h5>-->
+    <!--<ul class="list-group">-->
+    <!--<li class="list-group-item">-->
+    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+    <!--</li>-->
+    <!--&lt;!&ndash; <li class="list-group-item">-->
+    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+    <!--</li>-->
+    <!--<li class="list-group-item">-->
+    <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
+    <!--</li> &ndash;&gt;-->
+
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; <h5>Wiadomość od prowadzącego:</h5>-->
+    <!--<blockquote>-->
+    <!--<p class="lead text-warning">-->
+    <!--Proszę cierpliwie czekać, spóźnię się ok. 10 minut.-->
+    <!--</p>-->
+    <!--</blockquote> &ndash;&gt;-->
+
+
+    <!--</div>-->
+
+
+    <!--<hr  ng-if="activity < 1"/>-->
+    <!--<a ng-if="activity < 1" class="btn btn-link btn-block lead btn-lg" ng-click="up()" href="/#/room" >-->
+    <!--<span ng-bind="activity < 0 ? 'Teraz w tej sali' : 'później w tej sali'"></span>-->
+    <!--<i class="fa fa-fw fa-lg fa-angle-down"></i>-->
+    <!--</a>-->
   </div>
-
-
-  <!--<div ng-if="activity > 0">-->
-  <!--<p class="lead">-->
-  <!--Następne zajęcia w tej sali według planu: <small class="pull-right"><span class="text-warning">Wykład</span></small>-->
-  <!--</p>-->
-  <!--<h4>-->
-  <!--<strong>Organizacja i zarządzanie</strong>-->
-  <!--</h4>-->
-  <!--<h6>Zajecia prowadzone dla kierunku: <strong>Informatyka stosowana - Wydział zarzadzania</strong></h6>-->
-  <!--<h5>-->
-  <!--od <strong>13:05</strong> do <strong>14:45</strong>-->
-  <!--</h5>-->
-
-  <!--<div class="row">-->
-  <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-  <!--<h5>Prowadzący:</h5>-->
-  <!--<ul class="list-group">-->
-  <!--<li class="list-group-item">-->
-  <!--<a title="E-Wizytówka" href="https://e-uczelnia.uek.krakow.pl/course/view.php?id=1045"  ><strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong></a>-->
-
-  <!--&lt;!&ndash; <a href="/#/room/1"  tooltip-placement="bottom" tooltip="Kliknij aby przejść do sali w któej prowadzący ma zajęcia"> &ndash;&gt;-->
-  <!--<strong class="text-muted" popover-trigger="mouseover" popover="Prowadzącego prowadzącej nie ma już na uczelni.">dr hab. Paweł Wołoszyn</strong>-->
-  <!--&lt;!&ndash; </a> &ndash;&gt;-->
-
-  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right" tooltip="Kliknij aby zobaczyć pełny plan prowadzącego" ><i class="fa fa-fw fa-lg fa-calendar"></i></a>-->
-  <!--</li>-->
-  <!--</ul>-->
-  <!--</div>-->
-  <!--<div class="col-lg-6 col-md-6 col-sm-6">-->
-  <!--<h5>Grupy:</h5>-->
-  <!--<ul class="list-group">-->
-  <!--<li class="list-group-item">-->
-  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-  <!--</li>-->
-  <!--&lt;!&ndash; <li class="list-group-item">-->
-  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-  <!--</li>-->
-  <!--<li class="list-group-item">-->
-  <!--<a href="http://devplan.uek.krakow.pl/#/timetable/g272"><strong>KrDzIs3011Io</strong></a>-->
-  <!--</li> &ndash;&gt;-->
-
-  <!--</ul>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--&lt;!&ndash; <h5>Wiadomość od prowadzącego:</h5>-->
-  <!--<blockquote>-->
-  <!--<p class="lead text-warning">-->
-  <!--Proszę cierpliwie czekać, spóźnię się ok. 10 minut.-->
-  <!--</p>-->
-  <!--</blockquote> &ndash;&gt;-->
-
-
-  <!--</div>-->
-
-
-  <!--<hr  ng-if="activity < 1"/>-->
-  <!--<a ng-if="activity < 1" class="btn btn-link btn-block lead btn-lg" ng-click="up()" href="/#/room" >-->
-  <!--<span ng-bind="activity < 0 ? 'Teraz w tej sali' : 'później w tej sali'"></span>-->
-  <!--<i class="fa fa-fw fa-lg fa-angle-down"></i>-->
-  <!--</a>-->
-</div>
 </div>
 
 
