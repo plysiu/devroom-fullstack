@@ -27,32 +27,33 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <d
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
-            <!--<span class="sr-only">Toggle navigation</span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-            <!--<span class="icon-bar"></span>-->
-          <!--</button>-->
-          <a class="navbar-brand" href="#">devRoom</a>
-        </div>
+    <!---->
+    <!--<nav class="navbar navbar-default" role="navigation">-->
+      <!--<div class="container">-->
+        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+        <!--<div class="navbar-header">-->
+          <!--&lt;!&ndash;<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="sr-only">Toggle navigation</span>&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+            <!--&lt;!&ndash;<span class="icon-bar"></span>&ndash;&gt;-->
+          <!--&lt;!&ndash;</button>&ndash;&gt;-->
+          <!--<a class="navbar-brand" href="#">devRoom</a>-->
+        <!--</div>-->
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <!--<ul class="nav navbar-nav navbar-right">-->
-            <!--<li><a href="#">Login</a></li>-->
-          <!--</ul>-->
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+          <!--&lt;!&ndash;<ul class="nav navbar-nav navbar-right">&ndash;&gt;-->
+            <!--&lt;!&ndash;<li><a href="#">Login</a></li>&ndash;&gt;-->
+          <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+      <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+    <!--</nav>-->
+
     <div class="container">
       <div ui-view=""></div>
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the <a href="http://dev.uek.krakow.pl">>dev</a> team</p>
+        <p>Powered by <a href="http://dev.uek.krakow.pl">>dev</a></p>
       </div>
     </div>
     <!--[if lt IE 9]>
@@ -70,7 +71,14 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/angular-moment/angular-moment.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+      <script src="bower_components/ngFx/dist/ngFx.js"></script>
       <!-- endbower -->
+    <script src="bower_components/moment/locale/pl.js"></script>
+
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->

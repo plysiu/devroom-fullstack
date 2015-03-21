@@ -6,7 +6,9 @@ angular.module('devroomFullstackApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'angular-google-analytics'
+  'angular-google-analytics',
+  'angularMoment',
+  'ngFx'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
@@ -24,4 +26,7 @@ angular.module('devroomFullstackApp', [
     AnalyticsProvider.useEnhancedLinkAttribution(true);
   })
   .run(function (Analytics) {
+  })
+  .run(function(amMoment) {
+    amMoment.changeLocale('pl');
   });
