@@ -8,4 +8,5 @@ angular.module('devroomFullstackApp')
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       });
+
   });
