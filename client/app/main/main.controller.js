@@ -12,11 +12,25 @@ angular.module('devroomFullstackApp')
       .success(function (data) {
         $scope.setTimetable(data);
       }).error(function () {
-        $http.post('http://devplan.uek.krakow.pl/api/timetables', {
-          tutor_id: [
-            $stateParams.timetableId.substr(1)
-          ]
-        }).success(function () {
+
+        if ($scope.isPlace()) {
+          var
+            data = {
+              place_id: [
+                $stateParams.timetableId.substr(1)
+              ]
+            };
+        }
+        else {
+          var
+            data = {
+              tutor_id: [
+                $stateParams.timetableId.substr(1)
+              ]
+            };
+        }
+
+        $http.post('http://devplan.uek.krakow.pl/api/timetables', data).success(function () {
           $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
             .success(function (data) {
               $scope.setTimetable(data);
@@ -40,7 +54,6 @@ angular.module('devroomFullstackApp')
       for (var i = 0; i < activities.length; i++) {
         if (currentTimestamp < activities[i].ends_at_timestamp) {
           $scope.currentActivity = activities[i];
-          console.log(currentTimestamp, activities[i].starts_at_timestamp);
           break;
         }
       }
@@ -50,4 +63,5 @@ angular.module('devroomFullstackApp')
       var time = Math.floor(new Date().getTime() / 1000);
       $scope.progress = ( (time - $scope.currentActivity.starts_at_timestamp ) / ( ($scope.currentActivity.ends_at_timestamp - $scope.currentActivity.starts_at_timestamp) )) * 100;
     };
-  });
+  })
+;

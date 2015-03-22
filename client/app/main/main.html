@@ -1,4 +1,4 @@
-<div class=" fx-zoom-normal  fx-speed-800" ng-if="currentActivity">
+<div class=" " ng-if="currentActivity">
   <div class="page-header">
 
 
@@ -10,9 +10,9 @@
 
     </h2>
 
-    <!--<h2 ng-if="isPlace()">Sala 122-->
-    <!--<small> Pawilon A</small>-->
-    <!--</h2>-->
+    <h2 ng-if="isPlace()" ng-bind="currentActivity.places[0].name">
+
+    </h2>
   </div>
   <div class="panel panel-default">
     <div class="panel-body">
@@ -139,6 +139,7 @@
         Najbliższe zajęcia: <strong>{{currentActivity.starts_at_timestamp*1000 | amCalendar }}</strong>
 
       </p>
+
       <h4>
         <span class=" pull-right text-warning">{{currentActivity.category_name}}</span>
         <strong>{{currentActivity.name}}</strong>

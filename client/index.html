@@ -51,7 +51,9 @@
     <!--</nav>-->
 
     <div class="container">
-      <div ui-view=""></div>
+      <div ui-view="" class="fx-zoom-normal  fx-speed-800"></div>
+
+      <hr/>
       <div class="footer">
         <p>Powered by <a href="http://dev.uek.krakow.pl">>dev</a></p>
       </div>
@@ -84,6 +86,8 @@
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/homepage/homepage.controller.js"></script>
+          <script src="app/homepage/homepage.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="components/modal/modal.service.js"></script>
