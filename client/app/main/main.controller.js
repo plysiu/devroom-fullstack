@@ -1,21 +1,41 @@
 'use strict';
 
 angular.module('devroomFullstackApp')
-  .controller('MainCtrl', function ($scope, $http, $stateParams, $interval) {
+  .controller('MainCtrl', function ($scope, $http, $stateParams, $interval, $log) {
 
-    console.log($stateParams.timetableId);
+    //console.log($stateParams.timetableId);
     $scope.isPlace = function () {
       return $stateParams.timetableId.indexOf('p') === 0;
     };
 
+    $scope.getPlaceName = function () {
+      if ($scope.isPlace() && $scope.currentActivity !== null) {
+
+        for (var i = 0; i < $scope.currentActivity.places.length; i++) {
+          if (parseInt($scope.currentActivity.places[i].id) === parseInt($stateParams.timetableId.substr(1))) {
+            return $scope.currentActivity.places[i].name;
+          }
+        }
+      } else {
+        $log.log('Wrong param');
+      }
+    };
+
 
     $scope.getTutorName = function () {
-      for (var i = 0; i < $scope.currentActivity.tutors.length; i++) {
-        if (parseInt($scope.currentActivity.tutors[i].id) === parseInt($stateParams.timetableId.substr(1))) {
-          return $scope.currentActivity.tutors[i].name;
+      if (!$scope.isPlace() && $scope.currentActivity !== null) {
+
+        for (var i = 0; i < $scope.currentActivity.tutors.length; i++) {
+          if (parseInt($scope.currentActivity.tutors[i].id) === parseInt($stateParams.timetableId.substr(1))) {
+            return $scope.currentActivity.tutors[i].name;
+          }
         }
+      } else {
+        $log.log('Wrong param');
       }
-    }
+    };
+
+
     $scope.timetable = null;
     $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
       .success(function (data) {
@@ -56,6 +76,7 @@ angular.module('devroomFullstackApp')
         $scope.getActivityProgress()
       }, 60000);
     };
+
     $scope.currentActivity = null;
 
     $scope.getNearestActivity = function (activities) {
@@ -63,6 +84,7 @@ angular.module('devroomFullstackApp')
       for (var i = 0; i < activities.length; i++) {
         if (currentTimestamp < activities[i].ends_at_timestamp) {
           $scope.currentActivity = activities[i];
+          $log.log($scope.currentActivity);
           break;
         }
       }
@@ -72,5 +94,9 @@ angular.module('devroomFullstackApp')
       var time = Math.floor(new Date().getTime() / 1000);
       $scope.progress = ( (time - $scope.currentActivity.starts_at_timestamp ) / ( ($scope.currentActivity.ends_at_timestamp - $scope.currentActivity.starts_at_timestamp) )) * 100;
     };
-  })
-;
+
+    $scope.isFullWidth = function () {
+      return ($scope.isPlace() === true && $scope.currentActivity.tutors.length > 0 ) || ($scope.isPlace() === false && $scope.currentActivity.places.length > 0 );
+    }
+
+  });

@@ -10,7 +10,7 @@
 
     </h2>
 
-    <h2 ng-if="isPlace()" ng-bind="currentActivity.places[0].name">
+    <h2 ng-if="isPlace()" ng-bind="getPlaceName()">
 
     </h2>
   </div>
@@ -137,9 +137,7 @@
 
       <p class="lead">
         Najbliższe zajęcia: <strong>{{currentActivity.starts_at_timestamp*1000 | amCalendar }}</strong>
-
       </p>
-
       <h4>
         <span class=" pull-right text-warning">{{currentActivity.category_name}}</span>
         <strong>{{currentActivity.name}}</strong>
@@ -159,18 +157,17 @@
 
 
       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6" ng-if="isPlace()">
-          <h5>Prowadzący:</h5>
+        <div ng-class="{'col-lg-6 col-md-6 col-sm-6':isFullWidth()}" ng-if="isPlace() === true">
+          <!--<h5>Prowadzący:</h5>-->
 
-          <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true"
-               ng-repeat="tutor in currentActivity.tutors">
+          <div class="panel-group" ng-repeat="tutor in currentActivity.tutors">
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="heading1">
+              <div class="panel-heading">
                 <h4 class="panel-title">
-                  <a title="E-Wizytówka" ng-href="tutor.moodle_url"><strong><i
-                    class="fa fa-fw fa-lg fa-credit-card"></i></strong></a>
-                  <a data-toggle="collapse" data-parent="#accordion1" ng-href="/#/room/#collapse1" aria-expanded="false"
-                     aria-controls="collapse1"><strong ng-bind="tutor.name"></strong></a>
+                  <a title="E-Wizytówka" ng-href="tutor.moodle_url">
+                    <strong><i class="fa fa-fw fa-lg fa-credit-card"></i></strong>
+                  </a>
+                  <strong ng-bind="tutor.name"></strong>
                   <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right"-->
                   <!--tooltip="Kliknij aby zobaczyć pełny plan prowadzącego"><i-->
                   <!--class="fa fa-fw fa-lg fa-calendar"></i></a>-->
@@ -192,16 +189,15 @@
           </div>
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-6" ng-if="!isPlace()">
-          <h5>Sala:</h5>
+        <div ng-class="{'col-lg-6 col-md-6 col-sm-6':isFullWidth()}" ng-if="isPlace() === false">
+          <!--<h5>Sala:</h5>-->
 
-          <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true"
+          <div class="panel-group"
                ng-repeat="place in currentActivity.places">
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="heading1">
                 <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion1" ng-href="/#/room/#collapse1" aria-expanded="false"
-                     aria-controls="collapse1"><strong ng-bind="place.name"></strong></a>
+                  <strong ng-bind="place.name"></strong>
                   <!--<a href="http://devplan.uek.krakow.pl/#/timetable/t247" title="devPlan" class="pull-right"-->
                   <!--tooltip="Kliknij aby zobaczyć pełny plan prowadzącego"><i-->
                   <!--class="fa fa-fw fa-lg fa-calendar"></i></a>-->
@@ -227,8 +223,8 @@
         </div>
 
 
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <h5>Grupa:</h5>
+        <div ng-class="{'col-lg-12 col-md-12 col-sm-12':!isFullWidth(),'col-lg-6 col-md-6 col-sm-6':isFullWidth()}">
+          <!--<h5>Grupa:</h5>-->
 
           <!--COLLAPSE-->
           <div class="panel panel-default" ng-repeat="group in currentActivity.groups">
