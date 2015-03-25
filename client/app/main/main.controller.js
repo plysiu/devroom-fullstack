@@ -3,10 +3,19 @@
 angular.module('devroomFullstackApp')
   .controller('MainCtrl', function ($scope, $http, $stateParams, $interval) {
 
+    console.log($stateParams.timetableId);
     $scope.isPlace = function () {
       return $stateParams.timetableId.indexOf('p') === 0;
     };
 
+
+    $scope.getTutorName = function () {
+      for (var i = 0; i < $scope.currentActivity.tutors.length; i++) {
+        if (parseInt($scope.currentActivity.tutors[i].id) === parseInt($stateParams.timetableId.substr(1))) {
+          return $scope.currentActivity.tutors[i].name;
+        }
+      }
+    }
     $scope.timetable = null;
     $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
       .success(function (data) {
