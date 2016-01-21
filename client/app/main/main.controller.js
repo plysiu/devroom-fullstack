@@ -37,7 +37,7 @@ angular.module('devroomFullstackApp')
 
 
     $scope.timetable = null;
-    $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
+    $http.get('https://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
       .success(function (data) {
         $scope.setTimetable(data);
       }).error(function () {
@@ -59,8 +59,8 @@ angular.module('devroomFullstackApp')
             };
         }
 
-        $http.post('http://devplan.uek.krakow.pl/api/timetables', data).success(function () {
-          $http.get('http://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
+        $http.post('https://devplan.uek.krakow.pl/api/timetables', data).success(function () {
+          $http.get('https://devplan.uek.krakow.pl/api/timetables/' + $stateParams.timetableId)
             .success(function (data) {
               $scope.setTimetable(data);
             });
